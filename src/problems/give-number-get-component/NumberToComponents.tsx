@@ -15,7 +15,7 @@ export default function NumberToComponents() {
   }
   console.log(array);
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: HTMLAnchorElement | number | any) => {
     e.preventDefault();
     const totalElements: number = e.target.number.value;
     setData(totalElements);
@@ -26,13 +26,23 @@ export default function NumberToComponents() {
       <div>
         <form onSubmit={handleSubmit}>
           <h1 className="text-red-600"> How many box </h1>
-          <input name="number" type="number" />
-          <button type="submit">Submit</button>
+          <input
+            className="border"
+            placeholder="How many ?"
+            name="number"
+            type="number"
+          />
+          <button
+            className="mx-5 px-4 border border-red-300 bg-red-100"
+            type="submit"
+          >
+            Submit
+          </button>
         </form>
       </div>
       {array.map((item, index: number) => (
         <div>
-          <h1> check {index + 1} </h1>
+          <h1> Hi, Im working with TS {index + 1} </h1>
         </div>
       ))}
     </div>
