@@ -2,17 +2,23 @@
 /* eslint-disable no-plusplus */
 import { useState } from "react";
 
+// interface State {
+//   number: number;
+// }
+
 export default function NumberToComponents() {
-  const [data, setData] = useState(0);
-  const array = [];
-  for (let i = 0; i < data; i++) {
+  const [data, setData] = useState<number>(0);
+
+  const array: number[] = [];
+  for (let i: number = 0; i < data; i++) {
     array.push(i);
   }
   console.log(array);
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    setData(e.target.number.value);
+    const totalElements: number = e.target.number.value;
+    setData(totalElements);
   };
 
   return (
@@ -24,9 +30,9 @@ export default function NumberToComponents() {
           <button type="submit">Submit</button>
         </form>
       </div>
-      {array.map((item, index) => (
+      {array.map((item, index: number) => (
         <div>
-          <h1> check {index} </h1>
+          <h1> check {index + 1} </h1>
         </div>
       ))}
     </div>
