@@ -3,16 +3,17 @@
 import { useState } from "react";
 
 export default function NumberToComponents() {
-  const [data, setData] = useState(0);
-  const array = [];
-  for (let i = 0; i < data; i++) {
+  const [data, setData] = useState<number>(0);
+
+  const array: number[] = [];
+  for (let i: number = 0; i < data; i++) {
     array.push(i);
   }
-  console.log(array);
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: HTMLAnchorElement | number | any) => {
     e.preventDefault();
-    setData(e.target.number.value);
+    const totalElements: number = e.target.number.value;
+    setData(totalElements);
   };
 
   return (
@@ -20,13 +21,23 @@ export default function NumberToComponents() {
       <div>
         <form onSubmit={handleSubmit}>
           <h1 className="text-red-600"> How many box </h1>
-          <input name="number" type="number" />
-          <button type="submit">Submit</button>
+          <input
+            className="border"
+            placeholder="How many ?"
+            name="number"
+            type="number"
+          />
+          <button
+            className="mx-5 px-4 border border-red-300 bg-red-100"
+            type="submit"
+          >
+            Submit
+          </button>
         </form>
       </div>
-      {array.map((item, index) => (
+      {array.map((item, index: number) => (
         <div>
-          <h1> check {index} </h1>
+          <h1> Hi, Im working with TS {index + 1} </h1>
         </div>
       ))}
     </div>
