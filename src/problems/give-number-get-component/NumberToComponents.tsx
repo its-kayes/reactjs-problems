@@ -2,10 +2,6 @@
 /* eslint-disable no-plusplus */
 import { useState } from "react";
 
-// interface State {
-//   number: number;
-// }
-
 export default function NumberToComponents() {
   const [data, setData] = useState<number>(0);
 
@@ -13,7 +9,6 @@ export default function NumberToComponents() {
   for (let i: number = 0; i < data; i++) {
     array.push(i);
   }
-  console.log(array);
 
   const handleSubmit = (e: HTMLAnchorElement | number | any) => {
     e.preventDefault();
