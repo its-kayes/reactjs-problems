@@ -10,9 +10,18 @@ export default function NumberToComponents() {
     array.push(i);
   }
 
-  const handleSubmit = (e: HTMLAnchorElement | number | any) => {
+  // const handleSubmit = (e: HTMLAnchorElement | number | any) => {
+  //   e.preventDefault();
+  //   const totalElements: number = e.target.number.value;
+  //   setData(totalElements);
+  // };
+
+  const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    const totalElements: number = e.target.number.value;
+    const target = e.target as typeof e.target & {
+      number: { value: number };
+    };
+    const totalElements = target.number.value;
     setData(totalElements);
   };
 
