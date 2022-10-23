@@ -1,9 +1,10 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-plusplus */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function NumberToComponents() {
   const [data, setData] = useState(0);
+  const [inputState, setInputState] = useState({});
 
   const array = [];
   for (let i = 0; i < data; i++) {
@@ -12,7 +13,13 @@ export default function NumberToComponents() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     setData(e.target.number.value);
+  };
+
+  const getData = (e) => {
+    e.preventDefault();
+    console.log(inputState);
   };
 
   return (
@@ -31,11 +38,28 @@ export default function NumberToComponents() {
           </button>
         </form>
       </div>
-      {array.map((item, index) => (
-        <div>
-          <h1> Box {index + 1} </h1>
-        </div>
-      ))}
+      <form onSubmit={getData}>
+        {array.map((item, index) => (
+          <div>
+            <input
+              key={index + 1}
+              value={inputState[`input-${index + 1}`]}
+              onChange={(e) =>
+                setInputState(() => ({
+                  ...inputState,
+                  [`input-${index + 1}`]: e.target.value,
+                }))
+              }
+              className="border"
+              type="text"
+              name={`input-${index + 1}`}
+            />
+          </div>
+        ))}
+        <button className="px-2 mx-2 border rounded py-2" type="submit">
+          Submit
+        </button>
+      </form>
     </div>
   );
 }
