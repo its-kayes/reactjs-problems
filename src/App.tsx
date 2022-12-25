@@ -6,6 +6,7 @@ import JsNumberToComponents from "./problems/js/NumberToComponents";
 import Nav from "./components/navbar/Nav";
 import AllCountries from "./problems/js/AllCountries";
 import ConstructorPrototype from "./problems/js/ConstructorPrototype";
+import CustomCarousel from "./problems/js/CustomCarousel";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           path="/js/constructor-prototype"
           element={<ConstructorPrototype />}
         />
+        <Route path="/js/custom-carousel" element={<CustomCarousel />} />
       </Routes>
     </div>
   );

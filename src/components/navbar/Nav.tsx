@@ -31,6 +31,10 @@ export default function Nav() {
             Constructor & Prototype (JS)
           </button>
         </Link>
+
+        <Link to="/js/custom-carousel">
+          <button className="px-3 py-2 border rounded ">Custom Carousel</button>
+        </Link>
       </section>
     </div>
   );
